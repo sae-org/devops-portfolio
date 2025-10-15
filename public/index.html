@@ -4,12 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Saeeda Batool • DevOps Engineer</title>
+  <meta name="description" content="DevOps Engineer specializing in cloud infrastructure, automation, and scalable systems. AWS, Kubernetes, Docker, Terraform expert." />
+  <meta name="author" content="Saeeda Batool" />
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="Saeeda Batool - DevOps Engineer Portfolio" />
+  <meta property="og:description" content="DevOps Engineer specializing in cloud infrastructure, automation, and scalable systems." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://saeeda.me" />
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <script defer src="https://kit.fontawesome.com/4c0b2b7f1e.js" crossorigin="anonymous"></script>
   <style>
-    :root{ --bg:#0b1220; --bg-2:#0d1526; --text:#d5e0ff; --muted:#9bb0d3; --acc:#2ee6c8; --acc-2:#3bd0ff; --card:#0f1930; --border:rgba(255,255,255,0.08); --shadow:0 20px 40px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.04) inset; }
+    :root{ --bg:#0b1220; --bg-2:#0d1526; --text:#d5e0ff; --muted:#9bb0d3; --acc:#2ee6c8; --acc-2:#3bd0ff; --card:#0f1930; --border:rgba(255,255,255,0.08); --shadow:0 20px 40px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.04) inset; --s3-bucket-url:https://your-bucket.s3.amazonaws.com; }
     *{box-sizing:border-box}
     html,body{height:100%; overflow-x:hidden}
     body{ margin:0; font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif; background: radial-gradient(1200px 600px at 70% -10%, rgba(59,208,255,0.15), transparent 60%), radial-gradient(900px 500px at 10% -20%, rgba(46,230,200,0.18), transparent 60%), var(--bg); color:var(--text); line-height:1.6; -webkit-font-smoothing:antialiased; }
@@ -17,28 +26,29 @@
     .site-header{position:sticky; top:0; z-index:50; backdrop-filter:saturate(140%) blur(8px); background:linear-gradient(180deg, rgba(11,18,32,0.85), rgba(11,18,32,0.55)); border-bottom:1px solid var(--border)}
     .site-header .container{display:flex; align-items:center; justify-content:space-between; padding:12px 0}
     .brand{display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:10px; font-weight:800; letter-spacing:0.5px; color:#051016; background:linear-gradient(135deg, var(--acc), var(--acc-2)); text-decoration:none; box-shadow:var(--shadow)}
-    .nav a{color:var(--muted); margin-left:18px; text-decoration:none; font-weight:500}
+    .nav a{color:var(--muted); margin-left:18px; text-decoration:none; font-weight:500; transition:color 0.2s}
     .nav a:hover{color:var(--text)}
     .hero{position:relative; padding:120px 0 80px; min-height:calc(100vh - 70px); display:flex; align-items:center; }
     .hero-fade{position:absolute; inset:0; background:radial-gradient(800px 300px at 50% 0%, rgba(59,208,255,0.08), transparent 60%)}
     .hero-inner{display:flex; flex-direction:column; align-items:center; text-align:center}
     .pill{display:inline-block; padding:8px 14px; border-radius:999px; border:1px solid var(--border); color:var(--acc); background:rgba(46,230,200,0.06); font-size:14px}
     .hello{margin:18px 0 0; font-weight:700; font-size:40px; color:#cfe0ff}
-    /* Gradient full name */
     .name{margin:4px 0 12px; font-size:64px; line-height:1.05; letter-spacing:-0.02em; background:linear-gradient(135deg, var(--acc), var(--acc-2)); -webkit-background-clip:text; background-clip:text; color:transparent}
     .name span{background:inherit; -webkit-background-clip:text; background-clip:text; color:transparent}
     .role{font-size:28px; color:#9cc3ff; min-height:38px}
     .cursor{display:inline-block; width:2px; height:1.1em; background:#9cc3ff; margin-left:6px; transform:translateY(2px); animation:blink 1s steps(1,end) infinite}
     @keyframes blink{50%{opacity:0}}
     .lead{max-width:780px; color:var(--muted); margin:18px 0 28px}
-    .cta{display:flex; gap:12px; flex-wrap:wrap}
-    .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:12px; border:1px solid var(--border); background:rgba(255,255,255,0.02); color:var(--text); text-decoration:none; font-weight:600; box-shadow:var(--shadow)}
+    .cta{display:flex; gap:12px; flex-wrap:wrap; justify-content:center}
+    .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:12px; border:1px solid var(--border); background:rgba(255,255,255,0.02); color:var(--text); text-decoration:none; font-weight:600; box-shadow:var(--shadow); transition:all 0.2s; cursor:pointer}
     .btn.primary{background:linear-gradient(180deg, rgba(46,230,200,0.18), rgba(46,230,200,0.08)); border-color:rgba(46,230,200,0.35)}
+    .btn.primary:hover{background:linear-gradient(180deg, rgba(46,230,200,0.24), rgba(46,230,200,0.12)); transform:translateY(-2px)}
     .btn.ghost{background:transparent}
+    .btn.ghost:hover{background:rgba(255,255,255,0.05)}
     .btn.mini{padding:8px 12px; border-radius:10px; font-size:14px}
     .btn.full{justify-content:center; width:100%}
     .socials{display:flex; gap:18px; margin-top:22px}
-    .socials a{color:#9bb0d3; font-size:18px}
+    .socials a{color:#9bb0d3; font-size:18px; transition:color 0.2s}
     .socials a:hover{color:var(--text)}
     .section{padding:80px 0}
     .section-title{font-size:36px; margin:0 0 6px; background:linear-gradient(135deg, var(--acc), var(--acc-2)); -webkit-background-clip:text; background-clip:text; color:transparent}
@@ -46,30 +56,44 @@
     .grid{display:grid; gap:22px; align-items:stretch}
     .cards{grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); margin:0 auto; width:100%}
     @media (min-width:1280px){ .cards{grid-template-columns:repeat(2, 1fr)} }
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid var(--border); border-radius:18px; overflow:hidden; box-shadow:var(--shadow); height:100%}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid var(--border); border-radius:18px; overflow:hidden; box-shadow:var(--shadow); height:100%; transition:all 0.3s}
+    .card:hover{transform:translateY(-4px); box-shadow:0 30px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06) inset}
     .card-top{padding:18px; border-bottom:1px solid var(--border)}
     .badges span{display:inline-block; margin:4px; padding:6px 10px; border-radius:999px; font-size:12px; color:#e8f3ff; background:rgba(255,255,255,0.06); border:1px solid var(--border)}
     .card-body{padding:18px}
     .card h4{margin:6px 0 8px; font-size:20px}
     .tags span{display:inline-block; font-size:12px; margin:6px 6px 0 0; padding:6px 10px; border-radius:999px; background:#0e1830; border:1px solid var(--border); color:#b8c7e4}
-    .actions{display:flex; gap:10px; margin-top:12px}
+    .actions{display:flex; gap:10px; margin-top:12px; flex-wrap:wrap}
     .gradient.purple{background:linear-gradient(180deg, rgba(130,87,229,0.18), transparent 45%), linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))}
     .gradient.blue{background:linear-gradient(180deg, rgba(60,140,255,0.18), transparent 45%), linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))}
     .gradient.green{background:linear-gradient(180deg, rgba(46,230,200,0.18), transparent 45%), linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))}
     .gradient.orange{background:linear-gradient(180deg, rgba(255,153,51,0.18), transparent 45%), linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))}
     .certs{grid-template-columns:repeat(auto-fit, minmax(280px, 1fr))}
-    .cert{background:var(--card); border:1px solid var(--border); border-radius:16px; padding:18px; box-shadow:var(--shadow)}
+    .cert{background:var(--card); border:1px solid var(--border); border-radius:16px; padding:18px; box-shadow:var(--shadow); transition:all 0.3s}
+    .cert:hover{transform:translateY(-2px); box-shadow:0 25px 50px rgba(0,0,0,0.5)}
     .cert-head{display:flex; justify-content:space-between; gap:10px; align-items:center}
     .badge.outline{border:1px solid rgba(255,255,255,0.15); padding:6px 10px; border-radius:999px; color:#e7f3ff}
-    .issuer{color:var(--muted)}
+    .issuer{color:var(--muted); font-size:14px; margin-top:4px}
     .verify{margin-top:10px}
     .contact-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:22px}
     .contact-card{background:var(--card); border:1px solid var(--border); border-radius:18px; padding:18px; box-shadow:var(--shadow)}
     .contact-list,.offer-list{list-style:none; padding:0; margin:10px 0 16px}
     .contact-list li{margin:10px 0; display:flex; align-items:center; gap:10px; color:var(--text)}
+    .contact-list a{color:var(--acc); text-decoration:none}
+    .contact-list a:hover{text-decoration:underline}
     .offer-list li{margin:8px 0; color:var(--muted)}
     .label{min-width:90px; display:inline-block; color:var(--muted); font-weight:600; letter-spacing:.02em; margin-right:6px}
     .footer{padding:28px 0; border-top:1px solid var(--border); color:#9bb0d3; background:#0a0f1c; text-align:center}
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .name{font-size:48px}
+      .hello{font-size:32px}
+      .role{font-size:24px}
+      .section-title{font-size:28px}
+      .nav{display:flex; flex-wrap:wrap}
+      .nav a{margin-left:12px}
+    }
   </style>
 </head>
 <body>
@@ -79,7 +103,7 @@
       <nav class="nav">
         <a href="#projects">Projects</a>
         <a href="#certs">Certifications</a>
-        <a href="#contact">Contact</a>
+        <a href="https://www.linkedin.com/in/saeeda14/" target="_blank" rel="noopener">Contact</a>
       </nav>
     </div>
   </header>
@@ -95,13 +119,17 @@
       </h2>
       <p class="lead">Passionate about building robust, scalable infrastructure and automating everything. I bridge the gap between development and operations with modern tools and best practices.</p>
       <div class="cta">
-        <a class="btn primary" href="mailto:saeeda.devops@gmail.com"><i class="fa-solid fa-envelope"></i> Get In Touch</a>
-        <a class="btn ghost" href="#"><i class="fa-solid fa-download"></i> Download CV</a>
+        <a class="btn primary" href="#" id="download-cv-btn">
+          <i class="fa-solid fa-download"></i> Download CV
+        </a>
+        <a class="btn primary" href="https://www.linkedin.com/in/saeeda-batool" target="_blank" rel="noopener">
+          <i class="fa-brands fa-linkedin"></i> Connect with Me
+        </a>
       </div>
       <div class="socials">
-        <a aria-label="GitHub" href="#" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
-        <a aria-label="LinkedIn" href="#" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></a>
-        <a aria-label="X" href="#" target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>
+        <a aria-label="GitHub" href="https://github.com/sae-org" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
+        <a aria-label="LinkedIn" href="https://www.linkedin.com/in/saeeda-batool" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></a>
+        <a aria-label="Email" href="mailto:saeeda.devops@gmail.com"><i class="fa-solid fa-envelope"></i></a>
       </div>
     </div>
     <div class="hero-fade"></div>
@@ -119,13 +147,14 @@
           <div class="card-top">
             <div class="badges"><span>Reusable modules</span><span>Multi-cloud</span><span>Production-ready</span></div>
           </div>
-          <div class="card-body">
+          <div class="card-body">+5
+            6.0
             <h4>Terraform Modules</h4>
             <p>Battle-tested, reusable modules to provision secure, scalable cloud foundations with best practices baked in.</p>
             <div class="tags"><span>Terraform</span><span>IaC</span><span>AWS</span><span>Azure</span><span>GCP</span></div>
             <div class="actions">
               <a class="btn mini" href="https://github.com/orgs/sae-org/repositories" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Git Repo</a>
-              <a class="btn mini" href="https://medium.com/me/stories" target="_blank" rel="noopener"><i class="fa-regular fa-newspaper"></i> Article</a>
+              <a class="btn mini" href="https://medium.com/@saeeda.devops" target="_blank" rel="noopener"><i class="fa-brands fa-medium"></i> Article</a>
             </div>
           </div>
         </article>
@@ -141,7 +170,7 @@
             <div class="tags"><span>Terraform</span><span>AWS</span><span>EKS</span><span>RDS</span><span>IAM</span></div>
             <div class="actions">
               <a class="btn mini" href="https://github.com/orgs/sae-org/repositories" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Git Repo</a>
-              <a class="btn mini" href="https://medium.com/me/stories" target="_blank" rel="noopener"><i class="fa-regular fa-newspaper"></i> Article</a>
+              <a class="btn mini" href="https://medium.com/@saeeda.devops" target="_blank" rel="noopener"><i class="fa-brands fa-medium"></i> Article</a>
             </div>
           </div>
         </article>
@@ -157,7 +186,7 @@
             <div class="tags"><span>Docker</span><span>OCI</span><span>Best Practices</span></div>
             <div class="actions">
               <a class="btn mini" href="https://github.com/orgs/sae-org/repositories" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Git Repo</a>
-              <a class="btn mini" href="https://medium.com/me/stories" target="_blank" rel="noopener"><i class="fa-regular fa-newspaper"></i> Article</a>
+              <a class="btn mini" href="https://medium.com/@saeeda.devops" target="_blank" rel="noopener"><i class="fa-brands fa-medium"></i> Article</a>
             </div>
           </div>
         </article>
@@ -173,7 +202,7 @@
             <div class="tags"><span>Ansible</span><span>YAML</span><span>Linux</span></div>
             <div class="actions">
               <a class="btn mini" href="https://github.com/orgs/sae-org/repositories" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Git Repo</a>
-              <a class="btn mini" href="https://medium.com/me/stories" target="_blank" rel="noopener"><i class="fa-regular fa-newspaper"></i> Article</a>
+              <a class="btn mini" href="https://medium.com/@saeeda.devops" target="_blank" rel="noopener"><i class="fa-brands fa-medium"></i> Article</a>
             </div>
           </div>
         </article>
@@ -189,7 +218,7 @@
             <div class="tags"><span>CloudFront</span><span>CDN</span><span>WAF</span><span>HTTPS</span></div>
             <div class="actions">
               <a class="btn mini" href="https://github.com/orgs/sae-org/repositories" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Git Repo</a>
-              <a class="btn mini" href="https://medium.com/me/stories" target="_blank" rel="noopener"><i class="fa-regular fa-newspaper"></i> Article</a>
+              <a class="btn mini" href="https://medium.com/@saeeda.devops" target="_blank" rel="noopener"><i class="fa-brands fa-medium"></i> Article</a>
             </div>
           </div>
         </article>
@@ -197,26 +226,49 @@
     </div>
   </section>
 
-  <!-- CERTS (unchanged) -->
+  <!-- CERTIFICATIONS -->
   <section id="certs" class="section">
     <div class="container">
       <h3 class="section-title">Certifications</h3>
       <p class="section-sub">Industry-recognized certifications demonstrating expertise in cloud and DevOps technologies</p>
       <div class="grid certs">
         <article class="cert gradient purple">
-          <div class="cert-head"><h4>CompTIA Linux+ (Linux+ CE)</h4><span class="badge outline">Certification</span></div>
+          <div class="cert-head">
+            <h4>CompTIA Linux+ (Linux+ CE)</h4>
+            <span class="badge outline">Certification</span>
+          </div>
           <p class="issuer">CompTIA</p>
-          <div class="verify"><a class="btn mini ghost" href="#" target="_blank">View Certificate</a></div>
+          <div class="verify">
+            <button class="btn mini ghost" onclick="viewCertificate('comptia-linux-plus.pdf')">
+              <i class="fa-solid fa-certificate"></i> View Certificate
+            </button>
+          </div>
         </article>
+        
         <article class="cert gradient blue">
-          <div class="cert-head"><h4>AWS Certified Solutions Architect – Associate</h4><span class="badge outline">Associate</span></div>
+          <div class="cert-head">
+            <h4>AWS Certified Solutions Architect – Associate</h4>
+            <span class="badge outline">Associate</span>
+          </div>
           <p class="issuer">Amazon Web Services</p>
-          <div class="verify"><a class="btn mini ghost" href="#" target="_blank">View Certificate</a></div>
+          <div class="verify">
+            <button class="btn mini ghost" onclick="viewCertificate('aws-solutions-architect-associate.pdf')">
+              <i class="fa-solid fa-certificate"></i> View Certificate
+            </button>
+          </div>
         </article>
+        
         <article class="cert gradient green">
-          <div class="cert-head"><h4>HashiCorp Certified: Terraform Associate</h4><span class="badge outline">Associate</span></div>
+          <div class="cert-head">
+            <h4>HashiCorp Certified: Terraform Associate</h4>
+            <span class="badge outline">Associate</span>
+          </div>
           <p class="issuer">HashiCorp</p>
-          <div class="verify"><a class="btn mini ghost" href="#" target="_blank">View Certificate</a></div>
+          <div class="verify">
+            <button class="btn mini ghost" onclick="viewCertificate('hashicorp-terraform-associate.pdf')">
+              <i class="fa-solid fa-certificate"></i> View Certificate
+            </button>
+          </div>
         </article>
       </div>
     </div>
@@ -231,9 +283,21 @@
         <div class="contact-card gradient orange">
           <h4>Get In Touch</h4>
           <ul class="contact-list">
-            <li><i class="fa-solid fa-envelope"></i> <span class="label">Email:</span> <a href="mailto:saeeda.devops@gmail.com">saeeda.devops@gmail.com</a></li>
-            <li><i class="fa-solid fa-phone"></i> <span class="label">Phone:</span> <a href="tel:+13477772963">+1 (347) 777-2963</a></li>
-            <li><i class="fa-solid fa-location-dot"></i> <span class="label">Location:</span> Brooklyn, NY</li>
+            <li>
+              <i class="fa-solid fa-envelope"></i> 
+              <span class="label">Email:</span> 
+              <a href="mailto:saeeda.devops@gmail.com">saeeda.devops@gmail.com</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-phone"></i> 
+              <span class="label">Phone:</span> 
+              <a href="tel:+13477772963">+1 (347) 777-2963</a>
+            </li>
+            <li>
+              <i class="fa-solid fa-location-dot"></i> 
+              <span class="label">Location:</span> 
+              Brooklyn, NY
+            </li>
           </ul>
         </div>
         <div class="contact-card gradient green">
@@ -244,37 +308,116 @@
             <li>Cloud Migration</li>
             <li>Monitoring & Observability</li>
           </ul>
-          <a class="btn primary full" href="mailto:saeeda.devops@gmail.com"><i class="fa-solid fa-comments"></i> Start a Conversation</a>
+          <a class="btn primary full" href="https://www.linkedin.com/in/saeeda-batool" target="_blank" rel="noopener">
+            <i class="fa-brands fa-linkedin"></i> Connect with Me
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <footer class="footer"><div class="container"><p>© <span id="year"></span> Saeeda Batool • Built with ❤️ and automation</p></div></footer>
+  <footer class="footer">
+    <div class="container">
+      <p>© <span id="year"></span> Saeeda Batool • Built with ❤️ and automation</p>
+    </div>
+  </footer>
 
   <script>
-    // typing effect
-    const phrases=["DevOps Engineer","Cloud & IaC Specialist","Automation Enthusiast"];
-    const typedEl=document.getElementById("typed");
-    let i=0,j=0,deleting=false,pause=0;
-    function typeLoop(){
-      if(!typedEl) return;
-      const current=phrases[i%phrases.length];
-      if(pause>0){ pause--; return requestAnimationFrame(typeLoop);}
-      if(!deleting){
-        typedEl.textContent=current.slice(0,j++);
-        if(j>current.length){ deleting=true; pause=40; }
+    // S3 Bucket Configuration - UPDATE THIS WITH YOUR ACTUAL BUCKET URL
+    const S3_BUCKET_URL = 'https://sae-my-portfolio-contents.s3.amazonaws.com';
+    
+    // Certificate paths in S3
+    const CERTIFICATES = {
+      'linux.pdf': 'certificates/linux.pdf',
+      'aws.pdf': 'certificates/aws.pdf',
+      'terraform.pdf': 'certificates/terraform.pdf'
+    };
+    
+    // CV path in S3
+    const CV_PATH = 'documents/resume.pdf';
+    
+    // Function to view certificates from S3
+    function viewCertificate(certName) {
+      const certPath = CERTIFICATES[certName];
+      if (certPath) {
+        const certUrl = `${S3_BUCKET_URL}/${certPath}`;
+        window.open(certUrl, '_blank');
       } else {
-        typedEl.textContent=current.slice(0,j--);
-        if(j<0){ deleting=false; i++; pause=10; }
+        console.error('Certificate not found:', certName);
+        alert('Certificate not available at this time.');
       }
-      const speed=deleting?30:45;
-      setTimeout(()=>requestAnimationFrame(typeLoop),speed);
     }
+    
+    // Download CV from S3
+    document.getElementById('download-cv-btn').addEventListener('click', function(e) {
+      e.preventDefault();
+      const cvUrl = `${S3_BUCKET_URL}/${CV_PATH}`;
+      
+      // Create temporary link and trigger download
+      const link = document.createElement('a');
+      link.href = cvUrl;
+      link.download = 'resume.pdf';
+      link.target = '_blank';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+    
+    // Typing effect
+    const phrases = ["DevOps Engineer", "Cloud & IaC Specialist", "Automation Enthusiast"];
+    const typedEl = document.getElementById("typed");
+    let i = 0, j = 0, deleting = false, pause = 0;
+    
+    function typeLoop() {
+      if (!typedEl) return;
+      const current = phrases[i % phrases.length];
+      
+      if (pause > 0) {
+        pause--;
+        return requestAnimationFrame(typeLoop);
+      }
+      
+      if (!deleting) {
+        typedEl.textContent = current.slice(0, j++);
+        if (j > current.length) {
+          deleting = true;
+          pause = 40;
+        }
+      } else {
+        typedEl.textContent = current.slice(0, j--);
+        if (j < 0) {
+          deleting = false;
+          i++;
+          pause = 10;
+        }
+      }
+      
+      const speed = deleting ? 30 : 45;
+      setTimeout(() => requestAnimationFrame(typeLoop), speed);
+    }
+    
     typeLoop();
-
-    // footer year
-    document.getElementById("year").textContent=new Date().getFullYear();
+    
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+    
+    // Smooth scroll for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#') {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        }
+      });
+    });
   </script>
 </body>
 </html>
+
