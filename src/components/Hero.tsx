@@ -3,6 +3,12 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Github, Linkedin, Mail, Download } from "lucide-react";
 
+const RESUME_URL =
+  "https://sae-my-portfolio-contents.s3.amazonaws.com/documents/resume.pdf";
+const LINKEDIN_URL = "https://www.linkedin.com/in/saeeda14";
+const GITHUB_URL = "https://github.com/saeeda-batool";
+const EMAIL_URL = "mailto:saeeda.devops@gmail.com";
+
 const Hero = () => {
   const [displayText, setDisplayText] = useState("");
   const fullText = "DevOps Engineer";
@@ -43,26 +49,77 @@ const Hero = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button size="lg" className="bg-gradient-tech hover:shadow-glow-green transition-all duration-300">
-            <Mail className="w-5 h-5 mr-2" />
-            Get In Touch
+          <Button
+            asChild
+            size="lg"
+            className="bg-gradient-tech hover:shadow-glow-green transition-all duration-300"
+          >
+            <a href={EMAIL_URL}>
+              <Mail className="w-5 h-5 mr-2" />
+              Get In Touch
+            </a>
           </Button>
 
-          <Button variant="outline" size="lg" className="border-primary/50 hover:bg-primary/10">
-            <Download className="w-5 h-5 mr-2" />
-            Download CV
+          <Button
+            asChild
+            variant="outline"
+            size="lg"
+            className="border-primary/50 hover:bg-primary/10"
+          >
+            <a href={RESUME_URL} target="_blank" rel="noopener noreferrer">
+              <Download className="w-5 h-5 mr-2" />
+              Download CV
+            </a>
+          </Button>
+
+          <Button
+            asChild
+            variant="secondary"
+            size="lg"
+            className="hover:shadow-glow-green transition-all duration-300"
+          >
+            <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">
+              <Linkedin className="w-5 h-5 mr-2" />
+              Connect With Me
+            </a>
           </Button>
         </div>
 
         <div className="flex gap-6 justify-center pt-8">
-          <Button variant="ghost" size="icon" className="hover:text-primary hover:scale-110 transition-all">
-            <Github className="w-6 h-6" />
+          <Button
+            asChild
+            variant="ghost"
+            size="icon"
+            className="hover:text-primary hover:scale-110 transition-all"
+            aria-label="View GitHub profile"
+          >
+            <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
+              <Github className="w-6 h-6" />
+            </a>
           </Button>
-          <Button variant="ghost" size="icon" className="hover:text-primary hover:scale-110 transition-all">
-            <Linkedin className="w-6 h-6" />
+
+          <Button
+            asChild
+            variant="ghost"
+            size="icon"
+            className="hover:text-primary hover:scale-110 transition-all"
+            aria-label="Connect on LinkedIn"
+          >
+            <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer">
+              <Linkedin className="w-6 h-6" />
+            </a>
           </Button>
-          <Button variant="ghost" size="icon" className="hover:text-accent hover:scale-110 transition-all">
-            <Mail className="w-6 h-6" />
+
+          <Button
+            asChild
+            variant="ghost"
+            size="icon"
+            className="hover:text-accent hover:scale-110 transition-all"
+            aria-label="Send an email"
+          >
+            <a href={EMAIL_URL}>
+              <Mail className="w-6 h-6" />
+            </a>
           </Button>
         </div>
       </div>
